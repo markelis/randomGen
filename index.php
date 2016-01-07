@@ -18,10 +18,12 @@ $CouponLength = filter_input(INPUT_POST, 'CouponLength');
             <input type="submit" name="submit" value="Click to Generate">
         </form>
         <p>This is what the button returns. A random set of characters. Like a coupon.</p>
-        <p><?php 
-        if(filter_has_var(INPUT_POST, 'CouponLength')) {
-            echo $myGenerator->UseGenerator($CouponLength); 
-        }
-        ?></p>
+        <p>
+            <?php 
+                if(filter_has_var(INPUT_POST, 'CouponLength')) {
+                    echo $myGenerator->UseGenerator($CouponLength); 
+                }
+            ?>
+        </p>
     </body>
 </html>
