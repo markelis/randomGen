@@ -1,6 +1,8 @@
 <?php
 require_once 'randomGen.php';
 
+//$_SERVER["PHP_SELF"] the safe way!
+$myForm = filter_input(INPUT_SERVER, 'PHP_SELF', FILTER_SANITIZE_SPECIAL_CHARS);
 $myGenerator = new RandomGen();
 $CouponLength = filter_input(INPUT_POST, 'CouponLength');
 ?>
@@ -11,7 +13,7 @@ $CouponLength = filter_input(INPUT_POST, 'CouponLength');
             <title>This is a testing random engine</title> 
     </head>
     <body>
-        <form method="post" action="index.php">
+        <form method="post" action="<?php echo $myForm; ?>">
             <input type="text" name="CouponLength" value="<?php echo $CouponLength; ?>">
             <input type="submit" name="submit" value="Click to Generate">
         </form>
